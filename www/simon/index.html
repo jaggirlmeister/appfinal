@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Cairo|Rajdhani&display=swap" rel="stylesheet" type="text/css" href="assets/css/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simon - Nayla Arroyo Lizzio</title>
-    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
 </head>
-<body onload="buildTable()">
+<body onload="">
 
     <h1>Simon</h1>
+    <a href="../index.html">
+        <img class="backIcon" src="../assets/images/back.svg"></img>
+    </a>
     <div id="cont">
-        <p>Próximamente!</p>
+
+        <div id="3" class="simonButton blueBtn" onclick="playSound('blue')">
+            <audio id="blue" src="assets/files/a_sharp.wav"></audio>
+        </div>
+
+        <div id="4" class="simonButton redBtn" onclick="playSound('red')">
+            <audio id="red" src="assets/files/c_sharp.wav"></audio>
+        </div>
+
+        <div id="2" class="simonButton yellowBtn" onclick="playSound('yellow')">
+            <audio id="yellow" src="assets/files/d_sharp.wav"></audio>
+        </div>
+
+        <div id="1" class="simonButton greenBtn" onclick="playSound('green')">
+            <audio id="green" src="assets/files/f_sharp.wav"></audio>
+        </div>
     </div>
-
-    <address>Programación Multimedial 2019 - Nayla Arroyo Lizzio</address>
-
-    <script src="js/script.js"></script>
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/code.js"></script>
 </body>
 </html>

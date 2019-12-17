@@ -1,110 +1,197 @@
-var player1={name:"" , nick: "", totalpoints: 0};
-var player2={name:"" , nick: "", totalpoints: 0};
 /*
+var player1={name:"" , nick: "", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
+var player2={name:"" , nick: "", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
+
 localStorage.clear();
 localStorage.setItem('tile', tileValue);
 localStorage.getItem('tile');
 */
 
-
-var savePlayer1;
-var savePlayer2;
+var player1=JSON.parse(localStorage.getItem('player1'));
+var player2=JSON.parse(localStorage.getItem('player2'));
+var motive= localStorage.getItem('motive');
 
 function loadHome(){
-savePlayer1=JSON.parse(localStorage.getItem('player1'));
-savePlayer2=JSON.parse(localStorage.getItem('player2'));
-alert(savePlayer2);
-    if(savePlayer1==null && savePlayer2==null){
-        login1();
+
+    if(motive!==null){
+        var motive= localStorage.getItem('motive');
+        $("body").css("background-image","url('assets/images/"+motive+".jpg'");
     }
     else{
-        alert("Estos son los valores que tengo: "+savePlayer1 + savePlayer2);
+        $("body").css("background-image","url('assets/images/afternoon.jpg'");
+    }
+
+    if(player1==null && player2==null){
+        player1={name:"" , nick: "", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
+        player2={name:"" , nick: "", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
+        $("#ask").removeClass("hide"); 
+        $("#login1").removeClass("hide");    
+    }
+    else{
+        $("#ask").addClass("hide");
+
         $("#player1Nick").empty();
         $("#player2Nick").empty();
-        $("#player1Nick").append(savePlayer1.nick);
-        $("#player2Nick").append(savePlayer2.nick);
-        $("#ask").remove();
+
+        $("#player1Nick").append(player1.nick);
+        $("#player2Nick").append(player2.nick);
+
+        var totalPoints1=player1.tttPoints+player1.memoPoints+player1.simonPoints;
+        $("#player1TotalPoints").append(totalPoints1);
+
+        var totalPoints2=player2.tttPoints+player2.memoPoints+player2.simonPoints;
+        $("#player2TotalPoints").append(totalPoints2);
     }
 }
 
-function login1(){
-    $("#ask").append("<div id='login' class='container'></div>");
-    $("#login").append("<p>Ingrese los datos del Jugador 1</p>");
-    $("#login").append("<img id='user1img' class='playerPic' src='assets/images/user.svg' onclick='takePicture()'></img>");
-    $("#login").append("<label>Nombre</label><br><input placeholder='Ingrese nombre del jugador 1' type='text' id='name1' name='name' required>");
-    $("#login").append("<label>Nickname</label><br><input placeholder='Ingrese nickname del jugador 1' type='text' id='nick1' name='nick' required>");
-    $("#login").append("<button type='submit' onclick='login2()' required>Ingresar</button>");
+function login1(num){
 
-}
-
-function login2(){ 
     player1.name= document.getElementById("name1").value;
     player1.nick= document.getElementById("nick1").value;
     var src= document.getElementById("user1img").src;
 
     if(player1.name ==""){ 
         $("#name1").addClass("wrong");
+    }else{
+        $("#name1").removeClass("wrong");
     }
+
     if(player1.nick ==""){ 
         $("#nick1").addClass("wrong");
+    }else{
+        $("#nick1").removeClass("wrong");
     }
 
     if(src==""){ 
         $("#user1img").addClass("wrong");
+    }else{
+        $("#user1img").removeClass("wrong");
     }
 
     if(player1.name!=="" && player1.nick!==""){
-        $("#login").empty();
-        $("#login").append("<p>Ingrese los datos del Jugador 2</p>");
-        $("#login").append("<img id='user2img' class='playerPic' src='assets/images/user.svg' onclick='takePicture()'></img>");
-        $("#login").append("<label>Nombre</label><br><input placeholder='Ingrese nombre del jugador 2' type='text' id='name2' name='name' required>");
-        $("#login").append("<label>Nickname</label><br><input placeholder='Ingrese nickname del jugador 2' type='text' id='nick2' name='nick' required>");
-        $("#login").append("<button type='submit' onclick='logged()' required>Ingresar</button>");
+        if(num==1){
+            $("#login1").addClass("hide");
+            $("#login2").removeClass("hide");    
+        }
+        else{
+            $("#login1").addClass("hide");
+            $("#ask").addClass("hide");
+
+            logged(1);
+        }
     }
 }
 
-function logged(){
+function login2(num){ 
+
     player2.name= document.getElementById("name2").value;
     player2.nick= document.getElementById("nick2").value;
 
     if(player2.name =="" || player2.name==player1.name){ 
         $("#name2").addClass("wrong");
+    }else{
+        $("#name2").removeClass("wrong");
     }
+
     if(player2.nick =="" || player2.nick==player1.nick){ 
         $("#nick2").addClass("wrong");
+    }else{
+        $("#nick2").removeClass("wrong");
     }
 
     if(player2.name!=="" && player2.nick!=="" && player2.nick!==player1.nick && player2.name !== player1.name){
-    $("#ask").addClass("hide");
+        if(num==1){
+            logged(3);
+        }else{
+            $("#login2").addClass("hide");
+            $("#ask").addClass("hide");
 
-    savePlayer1 = JSON.stringify(player1);
-    savePlayer2 = JSON.stringify(player2);
-
-    alert(savePlayer1 +"  "+savePlayer2);
-
-    window.localStorage.setItem('player1', savePlayer1);
-    window.localStorage.setItem('player2', savePlayer2);
-
-    $("#player1Nick").empty();
-    $("#player2Nick").empty();
-    $("#player1Nick").append(player1.nick);
-    $("#player2Nick").append(player2.nick);
+            logged(2);
+        }
     }
 }
 
-function changeMotive(){
-    var motive = document.getElementById("motive").value;
+function logged(player){
+    if(player==1){
+        $("#ask").addClass("hide");
+        $("#login1").addClass("hide");
+        
+        
+        $("#player1Nick").empty();
+        $("#player1Nick").append(player1.nick);
 
-    $("body").css("background-image","url('assets/images/"+motive+".jpg'");
+        player1 = JSON.stringify(player1);
+        window.localStorage.setItem('player1', player1);
+        player1= JSON.parse(localStorage.getItem('player1'));
+    }
+    else if(player==2){
+        $("#ask").addClass("hide");
+        $("#login2").addClass("hide");
+        
+        $("#player2Nick").empty();
+        $("#player2Nick").append(player2.nick);
+
+        player2 = JSON.stringify(player2);
+        window.localStorage.setItem('player2', player2);
+        player2= JSON.parse(localStorage.getItem('player2'));
+    }
+    else{
+
+        $("#ask").addClass("hide");
+        $("#login2").addClass("hide");  
+
+        $("#player1Nick").empty();
+        $("#player2Nick").empty();
+        $("#player1Nick").append(player1.nick);
+        $("#player2Nick").append(player2.nick);
+    
+        player1 = JSON.stringify(player1);
+        player2 = JSON.stringify(player2);
+    
+        window.localStorage.setItem('player1', player1);
+        window.localStorage.setItem('player2', player2);
+    }
 }
-
 
 function editPlayer(player){
     if (player==1){
-       // document.getElementById("player1Nick").innerHTML= "holis";
-        document.getElementById("player1Data").classList.add("expandData");
+        $("#ask").removeClass("hide");
+        $("#login1").removeClass("hide");
+
+        $("#login-head1").html("Edite los datos del jugador 1");
+        document.getElementById("name1").setAttribute("placeholder",player1.name);
+        document.getElementById("nick1").setAttribute("placeholder",player1.nick);
+
+        $("#buttonLogin1").attr("onclick","login1(2)");
     }
     else{
-        document.getElementById("player2Data").classList.add("expandData");
+        $("#ask").removeClass("hide");
+        $("#login2").removeClass("hide");
+
+        $("#login-head2").html("Edite los datos del jugador 2");
+        document.getElementById("name2").setAttribute("placeholder",player2.name);
+        document.getElementById("nick2").setAttribute("placeholder",player2.nick);
+
+        $("#buttonLogin2").attr("onclick","login2(2)");
     }
+}
+
+function sureAbout(num){
+    if(num==1){
+        var player=player1.nick;
+        var login= "login1";
+    }else{
+        var player=player2.nick;
+        var login="login2"
+    }
+    $("#"+login+"").empty();
+    $("#sureAbout").removeClass("hide");
+    $("#sureAboutHead").html("¿Seguro que quiere eliminar al jugador "+player+"? Luego no podrá recuperar sus datos");
+}
+
+function changeMotive(){
+    motive = document.getElementById("motive").value;
+    window.localStorage.setItem('motive', motive);
+
+    $("body").css("background-image","url('assets/images/"+motive+".jpg'");
 }
