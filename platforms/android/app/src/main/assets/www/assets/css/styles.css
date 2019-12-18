@@ -2,19 +2,19 @@ body{
     background-image: url("../images/afternoon.jpg");
     background-repeat: repeat;
     background-size: cover;
-    position: relative;
+    /*position: relative;*/
     text-align: center;
     margin: 0;
 }
 
-#ask{
+.information{
     position: absolute;
     z-index: 2;
     width: 100%;
     height: -webkit-fill-available;
     text-align: center;
     margin: 0 auto;
-    background-color: #0000002e;
+    background-color: #000000b0;
     font-family: 'Cairo', sans-serif;
 }
 
@@ -49,27 +49,41 @@ h1{
     font-family: 'rajdhani';
     color: white;
     font-size: 40px;
-    margin-bottom: 0.5em;
-    display: inline-block;
+    margin: 0;
 
+}
+
+#ttt-h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .backIcon{
-    width: 5%;
+    width: 13%;
     padding: 0.5em;
     background-color: #8749b3;
+    /* float: left; */
     position: absolute;
-    left: 3em;
-    top: 2em;
+    left: 1em;
+    top: 1em;
 }
 
 .playerPic{
-    width: 5em;
+    width: 3em;
+    height: 3em;
     border-radius: 50%;
     padding: 0;
     border: #fff solid 0.2em;
-    display: block;
     margin: 0 auto;
+    display: block;
+}
+
+#player1Pic{
+    float: left;
+}
+
+#player2Pic{
+    float: right;
 }
 
 .playerData{
@@ -79,43 +93,34 @@ h1{
     font-family: 'rajdhani';
     font-weight: bolder;
     font-size: 1.2em;
-    width: fit-content;
-    min-width: 4em;
+    width: 8em;
     border-radius: 0 0 15px 15px;
     text-align: center;
     display: inline-block;
-    overflow: hidden;
-    transition-property: width;
-    transition-duration: 5s;
-    transition-delay: 0.2s;
+    height: 3em;
 }
 
 .playerData p{
-    margin-bottom: 0;
+    margin: 0;
 }
 
 #player1Data{
-    position: absolute;
+    float: left;
     left: 0em;
     border-radius: 0 0 15px 0px;
+    margin-bottom: 2em;
 }
 
 #player2Data{
-    position: absolute;
+    float: right;
     right: 0em;
     border-radius: 0 0 0px 15px;
+    margin-bottom: 2em;
 }
 
 a{
     text-decoration: none;
     display: block;
-}
-
-.expandData{
-    -webkit-transition:2s;
-    height: -webkit-fill-available;
-    padding-left: 3em;
-    padding-right: 3em;
 }
 
 .hide{
@@ -132,25 +137,33 @@ a{
 
 #cont p{
     font-size: 24px;
-    /* margin: 0; */
-    display: inline-block;
-    padding: 0em 0.5em 0em 1em;
+    display: block;
     color: white;
-
 }
 
-#cont p:first-child{
-    padding: 0em 0.5em 0em 0em;
+#motive-menu{
+    font-size: 24px;
+    color: white;
+    font-family: 'Cairo', sans-serif;
+}
+
+#motive-menu p{
+    display: inline-block;
 }
 
 .container{
     background-color: #ffffffc4;
-    padding: 2em;
-    border-radius: 2em;
+    padding: 0.2em;
+    border-radius: 1em;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     text-align: center;
     width: fit-content;
+    margin: 0 auto;
+}
+
+.menu-container{
+    padding: 1.5em;
 }
 
 #table{
@@ -169,9 +182,9 @@ a{
 }
 
 select, button{
-    padding: 0.1em 1em 0.1em 1em;
+    padding: 0.4em 1em 0.4em 1em;
     border: none;
-    background-color: #8749b3;
+    background-color: #bb5273;
     width: 7em;
     font-family: 'Cairo', sans-serif;
     font-size: 24px;
@@ -183,6 +196,23 @@ select, button{
 
 option{
     background-color: #dbaaff;
+}
+
+
+.afternoon{
+    background-color: #bb5273 !important;
+}
+
+.night{
+    background-color: #3559ad !important;
+}
+
+.galaxy{
+    background-color: #440a68 !important;
+}
+
+.morning{
+    background-color: #8749b3 !important;
 }
 
 
@@ -258,6 +288,8 @@ img{
 
 .playerPoints{
     display: inline-block;
+    text-align: center;
+    width: 49%;
 }
 
 .playerPoints p{
@@ -265,25 +297,25 @@ img{
     margin-bottom: 0.2em;
 }
 
-#announce{
+.announce{
     position: absolute;
     width: 100%;
     background: #ffffffc4;
     z-index: 3;
-    color: indigo;
+    color: indigo; 
     font-weight: bold;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-#announce p{
+.announce p{
     display: block;
     width: 100%;
-    color: indigo;
+    color: indigo !important;
 }
 
-#announce button{
+.announce button{
     padding: 0.2em 1em 0.2em 1em;
     border: none;
     background-color: #4b0082d6;
@@ -293,7 +325,7 @@ img{
     margin-bottom: 2em;
 }
 
-#announce button:hover{
+.announce button:hover{
     background-color: #dbaaff;
 }
 

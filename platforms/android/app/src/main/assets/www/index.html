@@ -36,25 +36,49 @@
     </head>
     <body onload="loadHome()">
         <div class="app">
-                <div id="ask">
+            <div id="ask" class="information hide">
+                <div id='login1' class='container hide'>
+                    <p id="login-head1">Ingrese los datos del Jugador 1</p>
+                    <img id='user1img' class='playerPic' src='assets/images/user.svg' onclick='takePicture("player1Pic")'></img>
+                    <label>Nombre</label><br><input placeholder='Ingrese nombre del jugador 1' type='text' id='name1' name='name' required>
+                    <label>Nickname</label><br><input placeholder='Ingrese nickname del jugador 1' type='text' id='nick1' name='nick' required>
+                    <button id="buttonLogin1" onclick='login1(1)'>Ingresar</button>
+                    <button id="delete1" class="hide" onclick='sureAbout(1)'>Eliminar jugador</button>
                 </div>
+
+                <div id='login2' class='container hide'>
+                    <p id="login-head2">Ingrese los datos del Jugador 2</p>
+                    <img id='user2img' class='playerPic' src='assets/images/user.svg' onclick='takePicture("player2Pic")'></img>
+                    <label>Nombre</label><br><input placeholder='Ingrese nombre del jugador 2' type='text' id='name2' name='name' required>
+                    <label>Nickname</label><br><input placeholder='Ingrese nickname del jugador 2' type='text' id='nick2' name='nick' required>
+                    <button id="buttonLogin2" onclick='login2(1)' required>Ingresar</button>
+                    <button id="delete2" class="hide" onclick='sureAbout(2)'>Eliminar jugador</button>
+                </div>
+
+                <div id='sureAbout' class='container hide'>
+                    <p id="sureAboutHead"></p>
+                    <button id="yes" onclick="deleteUser()">Sí</button>
+                    <button id="no" onclick="back()">No</button>
+                </div>
+            </div>
+
                     <div id="player1Data" class="playerData" onclick="editPlayer(1)">
                         <img id="player1Pic" class="playerPic" src="assets/images/user.svg"></img>
-                        <p id="player1Nick">Player1</p>
-                        <p id="player1TotalPoints">0</p>
+                        <p id="player1Nick"></p>
+                        <p id="player1TotalPoints"></p>
                         <p id="player1Name"></p>
                     </div>
                 
                     <div id="player2Data" class="playerData" onclick="editPlayer(2)">
                         <img id="player2Pic" class="playerPic" src="assets/images/user.svg"></img>
-                        <p id="player2Nick">Player2</p>
-                        <p id="player1TotalPoints">0</p>
+                        <p id="player2Nick"></p>
+                        <p id="player2TotalPoints"></p>
                         <p id="player2Name"></p>
                     </div>
                 
                 
                     <h1>Nayla's App</h1>
-                    <div id="cont">
+                    <div id="motive-menu">
                         <p>Motivo: </p>
                         <select id="motive" name="motive" onchange="changeMotive()">
                             <option value="afternoon">Tarde</option>
@@ -63,7 +87,7 @@
                             <option value="galaxy">Galaxy</option>
                         </select>
                     </div>
-                    <div id="table" class="container">
+                    <div id="table" class="container menu-container">
                         <a href= "tateti/index.html">
                             <button id="tttBtn">Ta-Te-Ti</button>
                         </a>
