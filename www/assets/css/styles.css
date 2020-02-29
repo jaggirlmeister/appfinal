@@ -400,6 +400,46 @@ address{
     color: #ff6c8b !important;
 }
 
+.simonButton{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.greenBtn{
+    background-color: turquoise;
+}
+
+.redBtn{
+    background-color: rgb(206, 69, 110);
+}
+
+.yellowBtn{
+    background-color: rgb(223, 255, 78);
+    display: inline-block;
+}
+
+.blueBtn{
+    background-color: rgb(75, 64, 224);
+}
+
+.greenShadow{
+    box-shadow: 0px 0px 17px 5px #289dc2;
+}
+
+.redShadow{
+    box-shadow: 0px 0px 17px 5px #c22828;
+}
+
+.blueShadow{
+    box-shadow: 0px 0px 17px 5px #282ec2;
+}
+
+.yellowShadow{
+    box-shadow: 0px 0px 17px 5px #c27028;
+}
+
+
 @-webkit-keyframes specialTile {
 
     from {

@@ -39,7 +39,7 @@
             <div id="ask" class="information hide">
                 <div id='login1' class='container hide'>
                     <p id="login-head1">Ingrese los datos del Jugador 1</p>
-                    <img id='user1img' class='playerPic' src='assets/images/user.svg' onclick='takePicture("player1Pic")'></img>
+                    <img id='user1img' class='playerPic' src='assets/images/user.svg' onclick='takePicture(1)'></img>
                     <label>Nombre</label><br><input placeholder='Ingrese nombre del jugador 1' type='text' id='name1' name='name' required>
                     <label>Nickname</label><br><input placeholder='Ingrese nickname del jugador 1' type='text' id='nick1' name='nick' required>
                     <button id="buttonLogin1" onclick='login1(1)'>Ingresar</button>
@@ -48,7 +48,7 @@
 
                 <div id='login2' class='container hide'>
                     <p id="login-head2">Ingrese los datos del Jugador 2</p>
-                    <img id='user2img' class='playerPic' src='assets/images/user.svg' onclick='takePicture("player2Pic")'></img>
+                    <img id='user2img' class='playerPic' src='assets/images/user.svg' onclick='takePicture(2)'></img>
                     <label>Nombre</label><br><input placeholder='Ingrese nombre del jugador 2' type='text' id='name2' name='name' required>
                     <label>Nickname</label><br><input placeholder='Ingrese nickname del jugador 2' type='text' id='nick2' name='nick' required>
                     <button id="buttonLogin2" onclick='login2(1)' required>Ingresar</button>
@@ -98,9 +98,6 @@
                             <button id="simonBtn">Simon</button>
                         </a>
                     </div>
-            
-                <button id="cameraButton"> Tomar foto </button>
-                <img id="myImage" alt="photo">
         </div>
         <script src="assets/js/jquery-3.4.1.min.js"></script>
         <script src="assets/js/home.js"></script>

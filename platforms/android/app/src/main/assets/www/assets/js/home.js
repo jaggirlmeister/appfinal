@@ -1,6 +1,6 @@
 /*
-var player1={name:"" , nick: "", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
-var player2={name:"" , nick: "", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
+var player1={name:"" , nick: "", photo:"", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
+var player2={name:"" , nick: "", photo:"", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
 
 localStorage.clear();
 localStorage.setItem('tile', tileValue);
@@ -28,8 +28,8 @@ function loadHome(){
     }
 
     if(player1==null && player2==null){
-        player1={name:"" , nick: "", picture:"", totalpoints:0, tttPoints:0, memoPoints:0, simonPoints:0};
-        player2={name:"" , nick: "", picture:"", totalpoints:0, tttPoints:0, memoPoints:0, simonPoints:0};
+        player1={name:"" , nick: "", photo:"", totalpoints:0, tttPoints:0, memoPoints:0, simonPoints:0};
+        player2={name:"" , nick: "", photo:"", totalpoints:0, tttPoints:0, memoPoints:0, simonPoints:0};
         $("#ask").removeClass("hide"); 
         $("#login1").removeClass("hide");
         var totalPoints1=player1.tttPoints+player1.memoPoints+player1.simonPoints;
@@ -47,6 +47,12 @@ function loadHome(){
         $("#player1Nick").append(player1.nick);
         $("#player2Nick").append(player2.nick);
 
+        $("#user1img").attr("src", player1.photo);
+        $("#player1Pic").attr("src", player1.photo);
+
+        $("#user2img").attr("src", player2.photo);
+        $("#player2Pic").attr("src", player2.photo);
+
         var totalPoints1=player1.tttPoints+player1.memoPoints+player1.simonPoints;
         $("#player1TotalPoints").html(totalPoints1);
 
@@ -55,35 +61,38 @@ function loadHome(){
     }
 }
 
+var src= document.getElementById("player1Pic").src;
+
 function login1(num){
 
     //num(1=login; 2=edit)
 
     player1.name= document.getElementById("name1").value;
     player1.nick= document.getElementById("nick1").value;
-    var src= document.getElementById("user1img").src;
+    
 
-    if(player1.name =="" || player1.name ==undefined){ 
+    if(player1.name =="" || player1.name == undefined){ 
         $("#name1").addClass("wrong");
         $("#name1").attr("placeholder", "Ingrese el nombre del jugador 1");
     }else{
         $("#name1").removeClass("wrong");
     }
 
-    if(player1.nick =="" || player1.nick ==undefined){ 
+    if(player1.nick =="" || player1.nick == undefined){ 
         $("#nick1").addClass("wrong");
         $("#nick1").attr("placeholder", "Ingrese el nick del jugador 1");
     }else{
         $("#nick1").removeClass("wrong");
     }
 
-    if(src==""){ 
+    if(player1.photo==""){
         $("#user1img").addClass("wrong");
-    }else{
+    }
+    else{
         $("#user1img").removeClass("wrong");
     }
-
-    if(player1.name!=="" || undefined && player1.nick!=="" || undefined){
+        
+    if(player1.name!=="" && player1.name!==undefined && player1.nick!=="" && player1.nick!==undefined && player1.photo!==""){
         if(num==1){
             $("#login1").addClass("hide");
             $("#login2").removeClass("hide");    
@@ -118,7 +127,14 @@ function login2(num){
         $("#nick2").removeClass("wrong");
     }
 
-    if(player2.name!=="" && player2.nick!=="" && player2.nick!==player1.nick && player2.name !== player1.name && player2.name!==undefined && player2.nick!==undefined){
+    if(player2.photo==""){
+        $("#user2img").addClass("wrong");
+    }
+    else{
+        $("#user2img").removeClass("wrong");
+    }
+
+    if(player2.name!=="" && player2.nick!=="" && player2.nick!==player1.nick && player2.name !== player1.name && player2.name!==undefined && player2.nick!==undefined && player2.photo!==""){
         if(num==1){
             logged(3);
         }else{
@@ -202,23 +218,21 @@ function editPlayer(player){
 
 function sureAbout(num){
     if(num==1){
-        var player=player1.nick;
         var login= "login1";
         $("#yes").attr("onclick","deleteUser(1)");
     }else{
-        var player=player2.nick;
         var login="login2"
         $("#yes").attr("onclick","deleteUser(2)");
     }
     $("#"+login+"").addClass("hide");
     $("#sureAbout").removeClass("hide");
-    $("#sureAboutHead").html("¿Seguro que quiere eliminar al jugador "+player+"? Luego no podrá recuperar sus datos");
+    $("#sureAboutHead").html("¿Seguro que quiere eliminar al jugador "+num+"? Luego no podrá recuperar sus datos");
 }
 
 function deleteUser(player){
     if(player==1){
 
-        player1={name:"" , nick: "", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
+        player1={name:"" , nick: "", photo:"", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
         player1 = JSON.stringify(player1);
         window.localStorage.setItem('player1', player1);
         player1= JSON.parse(localStorage.getItem('player1'));
@@ -226,6 +240,9 @@ function deleteUser(player){
         totalPoints1=player1.tttPoints+player1.memoPoints+player1.simonPoints;
         $("#player1TotalPoints").html("");
         $("#player1TotalPoints").append(totalPoints1);
+
+        $("#user1img").attr("src", "assets/images/user.svg");
+        $("#player1Pic").attr("src", "assets/images/user.svg");
 
         document.getElementById("name1").value = "";
         document.getElementById("nick1").value = "";
@@ -236,7 +253,7 @@ function deleteUser(player){
     }
     else{
 
-        player2={name:"" , nick: "", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
+        player2={name:"" , nick: "", photo:"", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
         player2 = JSON.stringify(player2);
         window.localStorage.setItem('player2', player2);
         player2= JSON.parse(localStorage.getItem('player2'));
@@ -244,6 +261,9 @@ function deleteUser(player){
         totalPoints2=player2.tttPoints+player2.memoPoints+player2.simonPoints;
         $("#player2TotalPoints").html("");
         $("#player2TotalPoints").append(totalPoints2);
+
+        $("#user2img").attr("src", "assets/images/user.svg");
+        $("#player2Pic").attr("src", "assets/images/user.svg");
 
         document.getElementById("name2").value = "";
         document.getElementById("nick2").value = "";
@@ -283,9 +303,20 @@ function takePicture(id){
     });
 
     function onSuccess(imageData){
-        var image = document.getElementById(id);
-        var baseImage = "data:image/jpeg;base64," + imageData;
-        image.src = baseImage;
+        
+        var pictureTaken= "data:image/jpeg;base64," + imageData;
+        if(id==1){
+            $("#user1img").attr("src", pictureTaken);
+            $("#player1Pic").attr("src", pictureTaken);
+
+            player1.photo = pictureTaken;
+        }
+        else{
+            $("#user2img").attr("src", pictureTaken);
+            $("#player2Pic").attr("src", pictureTaken);
+
+            player2.photo = pictureTaken;
+        }
     }
 
     function onFail(message){
