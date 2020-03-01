@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Cairo|Rajdhani&display=swap" rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo|Rajdhani&display=swap" rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <title>Simon - Nayla Arroyo Lizzio</title>
-    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
 </head>
 <body onload="">
 
@@ -12,9 +12,24 @@
     <a href="../index.html">
         <img class="backIcon" src="../assets/images/back.svg"></img>
     </a>
+
+    <button id="start" onclick="createSequence()">Jugar</button>
+
     <div id="cont">
 
-        <button id="start" onclick="createSequence()">Jugar</button>
+        <div id="players">
+            <div class="playerPoints">
+                <p id="playerOne"></p>
+                <p id="player1Points-ttt"></p>
+            </div>
+
+            <div class="playerPoints">
+                <p id="playerTwo"></p>
+                <p id="player2Points-ttt"></p>
+            </div>
+        </div>
+
+        <div id="simon-table" class="container container-simon">
 
         <div id="green-button" class="simonButton greenBtn" onclick="usersChoice('green', 0)">
             <audio id="green" src="assets/files/green.mp3"></audio>
@@ -31,9 +46,9 @@
         <div id="blue-button" class="simonButton blueBtn" onclick="usersChoice('blue', 2)">
             <audio id="blue" src="assets/files/blue.mp3"></audio>
         </div>
-
-        
     </div>
+        
+</div>
     <script src="../assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/code.js"></script>
 </body>

@@ -21,6 +21,7 @@ body{
 
 .redBtn{
     background-color: rgb(206, 69, 110);
+    display: inline-block;
 }
 
 .yellowBtn{

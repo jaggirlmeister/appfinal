@@ -23,16 +23,16 @@ var pointsPlayer2=0;
 var cont=0;
 var selectedColor;
 
-if(player1data.simonTurn!==null){
-    var player=0;
-}
-else if(player2data.simonTurn!==null){
-    var player=1;
+var player = localStorage.getItem('simonTurn');
+
+if(player==null || player==0){
+    player=0;
+    document.getElementById("playerOne").classList.add("glow");
 }
 else{
-    var player=0;
+    player=1;
+    document.getElementById("playerTwo").classList.add("glow");
 }
-
 
 function turnOnColor(color){
     $("#"+color+"-button").addClass(color+"Shadow");
@@ -164,12 +164,15 @@ function gameOver(){
 
     if(player == 0){
         player = 1;
-        document.getElementById("playerTwo").classList.remove("glow");
-        document.getElementById("playerOne").classList.add("glow");
-    } else if(player == 1){
-        player = 0;
         document.getElementById("playerOne").classList.remove("glow");
         document.getElementById("playerTwo").classList.add("glow");
+        localStorage.setItem('simonTurn', player);
+
+    } else{
+        player = 0;
+        document.getElementById("playerTwo").classList.remove("glow");
+        document.getElementById("playerOne").classList.add("glow");
+        localStorage.setItem('simonTurn', player);
     }
 
     createSequence();

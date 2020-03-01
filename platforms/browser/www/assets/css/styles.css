@@ -5,6 +5,7 @@ body{
     /*position: relative;*/
     text-align: center;
     margin: 0;
+    height: 100vh;
 }
 
 .information{
@@ -130,7 +131,7 @@ a{
 #cont{
     margin: 0 auto;
     text-align: center;
-    width: 100%;
+    width: fit-content;
     font-family: 'Cairo', sans-serif;
     color: white;
 }
@@ -400,6 +401,14 @@ address{
     color: #ff6c8b !important;
 }
 
+
+/*SIMON*/
+
+.container-simon{
+    background-color: #000000c9;
+    padding: 1em;
+}
+
 .simonButton{
     width: 100px;
     height: 100px;
@@ -408,19 +417,24 @@ address{
 
 .greenBtn{
     background-color: turquoise;
+    margin: 0 auto;
 }
 
 .redBtn{
     background-color: rgb(206, 69, 110);
+    display: inline-block;
+    margin-right: 50px;
 }
 
 .yellowBtn{
     background-color: rgb(223, 255, 78);
     display: inline-block;
+    margin-left: 50px;
 }
 
 .blueBtn{
     background-color: rgb(75, 64, 224);
+    margin: 0 auto;
 }
 
 .greenShadow{
