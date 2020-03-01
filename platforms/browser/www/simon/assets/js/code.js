@@ -3,6 +3,16 @@ if(motive!==null){
     $("body").css("background-image","url('../assets/images/"+motive+".jpg'");
 }
 
+var player1data=JSON.parse(localStorage.getItem('player1'));
+var player2data=JSON.parse(localStorage.getItem('player2'));
+$("#playerOne").append(player1data.nick);
+$("#playerTwo").append(player2data.nick);
+
+var winOne = player1data.tttPoints;
+var winTwo = player2data.tttPoints;
+$("#player1Points-ttt").append(winOne);
+$("#player2Points-ttt").append(winTwo);
+
 var CPUsequence=[];
 var userSequence =[];
 

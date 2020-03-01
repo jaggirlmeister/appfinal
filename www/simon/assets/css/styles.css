@@ -1,8 +1,6 @@
 body{
-    background-image: url("../assets/images/afternoon.jpg");
     background-repeat: repeat;
     background-size: cover;
-    /*position: relative;*/
     text-align: center;
     margin: 0;
 }
@@ -13,9 +11,12 @@ body{
     border-radius: 50%;
 }
 
+.disable{
+    pointer-events:none;
+}
+
 .greenBtn{
     background-color: turquoise;
-    display: block;
 }
 
 .redBtn{
@@ -30,11 +31,20 @@ body{
 
 .blueBtn{
     background-color: rgb(75, 64, 224);
-    display: block;
 }
 
-#cont{
-    display: flex;
+.greenShadow{
+    box-shadow: 0px 0px 17px 5px #289dc2;
 }
 
-Manija <3
+.redShadow{
+    box-shadow: 0px 0px 17px 5px #c22828;
+}
+
+.blueShadow{
+    box-shadow: 0px 0px 17px 5px #282ec2;
+}
+
+.yellowShadow{
+    box-shadow: 0px 0px 17px 5px #c27028;
+}
