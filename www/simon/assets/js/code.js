@@ -22,6 +22,7 @@ var pointsPlayer1=0;
 var pointsPlayer2=0;
 var cont=0;
 var selectedColor;
+var sequences=0;
 
 var player = localStorage.getItem('simonTurn');
 
@@ -87,7 +88,7 @@ function check(color, position){
         }
     }
     else{
-        alert("game over! your Score: "+CPUsequence.length);
+        //alert("game over! your Score: "+CPUsequence.length);
         gameOver();
     }
 }
@@ -99,13 +100,13 @@ function playSound(id){
 
 function createSequence(){
 
+    $("#announce").addClass("hide");
+
     var randomNum= Math.floor(Math.random()*4);
     CPUsequence.push(randomNum);
 
     points++;
     $("#cont div").addClass("disable");
-    $("#announce").addClass("hide");
-    $("#winnerText").html("");
 
     for (var i = 0; i < CPUsequence.length; i++) {
         (function (i) {
@@ -115,7 +116,6 @@ function createSequence(){
         })(i);
     };
 }
-
 
 function showSequence(color, i){
     //0=green, 1=red, 2=blue, 3=yellow
@@ -159,34 +159,30 @@ function showSequence(color, i){
     }
 }
 
-
 function gameOver(){
 
-    $("#announce").removeClass("hide");
+    sequences= CPUsequence.length-1;
 
     if(player == 0){
         player = 1;
-
-        //document.getElementById("simon-table").innerHTML += "<div id='announce' class='announce'><p> Game Over<br> "+player1data.nick+": "+CPUsequence.length +" puntos </p><button id='reset' onclick='createSequence()'>Pasar turno</button>";
-
-        //$("#winnerText").html("Jugador "+player1data.nick+" Obtuvo: "+CPUsequence.length+" puntos");
-
         document.getElementById("playerOne").classList.remove("glow");
         document.getElementById("playerTwo").classList.add("glow");
         localStorage.setItem('simonTurn', player);
 
+        $("#announce").removeClass("hide");
+        $("#winnerText").html("Llegaste a "+sequences+" secuencias");
+
     } else{
         player = 0;
-
-        //document.getElementById("simon-table").innerHTML += "<div id='announce' class='announce'><p> Game Over<br> "+player2data.nick+": "+CPUsequence.length +" puntos </p><button id='reset' onclick='createSequence()'>Pasar turno</button>";
-
-        //$("#winnerText").html("Jugador "+player2data.nick+" Obtuvo: "+CPUsequence.length+" puntos");
-
         document.getElementById("playerTwo").classList.remove("glow");
         document.getElementById("playerOne").classList.add("glow");
         localStorage.setItem('simonTurn', player);
+        
+        $("#announce").removeClass("hide");
+        $("#winnerText").html("Llegaste a "+sequences+" secuencias");
     }
 
+    cont=0;
     CPUsequence=[];
     userSequence =[];
 }
