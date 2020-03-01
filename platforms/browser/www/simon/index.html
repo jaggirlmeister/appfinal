@@ -46,9 +46,13 @@
         <div id="blue-button" class="simonButton blueBtn" onclick="usersChoice('blue', 2)">
             <audio id="blue" src="assets/files/blue.mp3"></audio>
         </div>
+
+        <div id='announce' class='announce hide'>
+            <p> Game Over</p>
+            <p id="winnerText"> </p>
+            <button id='reset' onclick='createSequence()'>Pasar turno</button>
+        </div>    
     </div>
-        
-</div>
     <script src="../assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/code.js"></script>
 </body>

@@ -104,6 +104,8 @@ function createSequence(){
 
     points++;
     $("#cont div").addClass("disable");
+    $("#announce").addClass("hide");
+    $("#winnerText").html("");
 
     for (var i = 0; i < CPUsequence.length; i++) {
         (function (i) {
@@ -159,21 +161,32 @@ function showSequence(color, i){
 
 
 function gameOver(){
-    CPUsequence=[];
-    userSequence =[];
+
+    $("#announce").removeClass("hide");
 
     if(player == 0){
         player = 1;
+
+        //document.getElementById("simon-table").innerHTML += "<div id='announce' class='announce'><p> Game Over<br> "+player1data.nick+": "+CPUsequence.length +" puntos </p><button id='reset' onclick='createSequence()'>Pasar turno</button>";
+
+        //$("#winnerText").html("Jugador "+player1data.nick+" Obtuvo: "+CPUsequence.length+" puntos");
+
         document.getElementById("playerOne").classList.remove("glow");
         document.getElementById("playerTwo").classList.add("glow");
         localStorage.setItem('simonTurn', player);
 
     } else{
         player = 0;
+
+        //document.getElementById("simon-table").innerHTML += "<div id='announce' class='announce'><p> Game Over<br> "+player2data.nick+": "+CPUsequence.length +" puntos </p><button id='reset' onclick='createSequence()'>Pasar turno</button>";
+
+        //$("#winnerText").html("Jugador "+player2data.nick+" Obtuvo: "+CPUsequence.length+" puntos");
+
         document.getElementById("playerTwo").classList.remove("glow");
         document.getElementById("playerOne").classList.add("glow");
         localStorage.setItem('simonTurn', player);
     }
 
-    createSequence();
+    CPUsequence=[];
+    userSequence =[];
 }
