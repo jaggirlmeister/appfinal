@@ -15,6 +15,7 @@ $("#player2Points-ttt").append(winTwo);
 
 var CPUsequence=[];
 var userSequence =[];
+var theEnd = false;
 
 //points
 var points=0;
@@ -73,6 +74,11 @@ function usersChoice(color, num){
         cont=0;
     }else{
         cont++;
+    }
+
+    if(theEnd==true){
+        cont=0;
+        theEnd=false;
     }
 }
 
@@ -171,7 +177,8 @@ function gameOver(){
 
         $("#announce").removeClass("hide");
         $("#winnerText").html("Llegaste a "+cont+" secuencias");
-        cont=0;
+
+        theEnd=true;
 
     } else{
         player = 0;
@@ -181,16 +188,11 @@ function gameOver(){
         
         $("#announce").removeClass("hide");
         $("#winnerText").html("Llegaste a "+cont+" secuencias");
-        cont=0;
-    }
 
-/* cont=0;
-CPUsequence=[];
-userSequence=[];*/
+        theEnd=true;
+    }
 
 CPUsequence=[];
 userSequence =[];
-points=0;
-pointsPlayer1=0;
-pointsPlayer2=0;
+
 }

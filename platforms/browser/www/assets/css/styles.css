@@ -278,9 +278,14 @@ option{
     transform: rotateY(0deg);
 }
 
+.memoFlag{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
 img{
     border-radius: 1.1em;
-    padding-top: 9%;
 }
 
 .disable{
