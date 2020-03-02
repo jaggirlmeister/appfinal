@@ -22,7 +22,7 @@ var pointsPlayer1=0;
 var pointsPlayer2=0;
 var cont=0;
 var selectedColor;
-var sequences=0;
+//var sequences=0;
 
 var player = localStorage.getItem('simonTurn');
 
@@ -79,12 +79,12 @@ function usersChoice(color, num){
 function check(color, position){
 
     if(color==CPUsequence[position]){
-        //alert("eureka!"+ position);
+        
         if(position+1==CPUsequence.length){
             setTimeout(function(){
                 createSequence();
             },1000)
-            //alert("contador igual longitud: "+cont)
+            // alert("contador igual longitud: "+cont)
         }
     }
     else{
@@ -161,7 +161,7 @@ function showSequence(color, i){
 
 function gameOver(){
 
-    sequences= CPUsequence.length-1;
+  //  sequences= CPUsequence.length-1;
 
     if(player == 0){
         player = 1;
@@ -170,7 +170,8 @@ function gameOver(){
         localStorage.setItem('simonTurn', player);
 
         $("#announce").removeClass("hide");
-        $("#winnerText").html("Llegaste a "+sequences+" secuencias");
+        $("#winnerText").html("Llegaste a "+cont+" secuencias");
+        cont=0;
 
     } else{
         player = 0;
@@ -179,10 +180,17 @@ function gameOver(){
         localStorage.setItem('simonTurn', player);
         
         $("#announce").removeClass("hide");
-        $("#winnerText").html("Llegaste a "+sequences+" secuencias");
+        $("#winnerText").html("Llegaste a "+cont+" secuencias");
+        cont=0;
     }
 
-    cont=0;
-    CPUsequence=[];
-    userSequence =[];
+/* cont=0;
+CPUsequence=[];
+userSequence=[];*/
+
+CPUsequence=[];
+userSequence =[];
+points=0;
+pointsPlayer1=0;
+pointsPlayer2=0;
 }

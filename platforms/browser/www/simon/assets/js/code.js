@@ -22,6 +22,7 @@ var pointsPlayer1=0;
 var pointsPlayer2=0;
 var cont=0;
 var selectedColor;
+var sequences=0;
 
 var player = localStorage.getItem('simonTurn');
 
@@ -78,7 +79,7 @@ function usersChoice(color, num){
 function check(color, position){
 
     if(color==CPUsequence[position]){
-        //alert("eureka!"+ position);
+        
         if(position+1==CPUsequence.length){
             setTimeout(function(){
                 createSequence();
@@ -99,7 +100,7 @@ function playSound(id){
 
 function createSequence(){
 
-    $("announce").addClass("hide");
+    $("#announce").addClass("hide");
 
     var randomNum= Math.floor(Math.random()*4);
     CPUsequence.push(randomNum);
@@ -158,8 +159,9 @@ function showSequence(color, i){
     }
 }
 
-
 function gameOver(){
+
+    sequences= CPUsequence.length-1;
 
     if(player == 0){
         player = 1;
@@ -167,8 +169,8 @@ function gameOver(){
         document.getElementById("playerTwo").classList.add("glow");
         localStorage.setItem('simonTurn', player);
 
-        $("announce").removeClass("hide");
-        $("winnerText").html("Llegaste a "+CPUsequence.length+" secuencias");
+        $("#announce").removeClass("hide");
+        $("#winnerText").html("Llegaste a "+sequences+" secuencias");
 
     } else{
         player = 0;
@@ -176,14 +178,11 @@ function gameOver(){
         document.getElementById("playerOne").classList.add("glow");
         localStorage.setItem('simonTurn', player);
         
-        $("announce").removeClass("hide");
-        $("winnerText").html("Llegaste a "+CPUsequence.length+" secuencias");
-
+        $("#announce").removeClass("hide");
+        $("#winnerText").html("Llegaste a "+sequences+" secuencias");
     }
 
     cont=0;
     CPUsequence=[];
-    userSequence =[];
-
-    createSequence();
+    userSequence=[];
 }
