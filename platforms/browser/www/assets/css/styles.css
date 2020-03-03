@@ -1,15 +1,14 @@
 body{
     background-image: url("../images/afternoon.jpg");
-    background-repeat: repeat;
     background-size: cover;
-    /*position: relative;*/
+    background-position: top;
     text-align: center;
     margin: 0;
     height: 100vh;
 }
 
 .information{
-    position: absolute;
+    position: fixed;
     z-index: 2;
     width: 100%;
     height: -webkit-fill-available;
@@ -24,11 +23,20 @@ body{
     left: 50%;
     transform: translate(-50%,-50%);
     position: absolute;
+    color: #440a68;
+    font-weight: bold;
 }
 
 .logins button{
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+#sureAbout{
+    width: 97%;
+    margin: 0 auto;
+    margin-top: 2em;
+    font-size: 19px;
 }
 
 label{
@@ -55,8 +63,10 @@ h1{
     font-family: 'rajdhani';
     color: white;
     font-size: 40px;
-    margin: 0;
+}
 
+.home-title{
+    margin-top: 0;
 }
 
 #ttt-h1{
@@ -98,8 +108,8 @@ h1{
     padding: 1em;
     font-family: 'rajdhani';
     font-weight: bolder;
-    font-size: 1.2em;
-    width: 8em;
+    /*font-size: 1.2em;*/
+    width: 38%;
     border-radius: 0 0 15px 15px;
     text-align: center;
     display: inline-block;
@@ -108,6 +118,7 @@ h1{
 
 .playerData p{
     margin: 0;
+    font-size: 20px;
 }
 
 #player1Data{
@@ -133,7 +144,7 @@ a{
     display: none;
 }
 
-#cont{
+.cont{
     margin: 0 auto;
     text-align: center;
     width: fit-content;
@@ -141,8 +152,8 @@ a{
     color: white;
 }
 
-#cont p{
-    font-size: 24px;
+.cont p{
+    font-size: 30px;
     display: block;
     color: white;
 }
@@ -170,7 +181,10 @@ a{
 
 .menu-container{
     padding: 1.5em;
+    margin-bottom: 3em !important
 }
+
+/*Memotest table*/
 
 #table{
     position: relative;
@@ -193,7 +207,7 @@ select, button{
     background-color: #bb5273;
     width: 7em;
     font-family: 'Cairo', sans-serif;
-    font-size: 24px;
+    font-size: 25px;
     color: white;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
@@ -221,6 +235,20 @@ option{
     background-color: #8749b3 !important;
 }
 
+.memo-title{
+    font-size: 65px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+
+#memo-players{
+    font-family: 'Cairo', sans-serif;
+}
+
+#memo-players p{
+    color: white;
+    font-size: 40px;
+}
 
 #card{
     text-align: center;
@@ -283,6 +311,14 @@ option{
     transform: rotateY(0deg);
 }
 
+.memoTable{
+    width: 95%;
+}
+
+.memoCont{
+    width: 100% !important;
+}
+
 .memoTable div{
     margin-bottom: 1em;
 }
@@ -304,7 +340,7 @@ img{
 .playerPoints{
     display: inline-block;
     text-align: center;
-    width: 49%;
+    width: 45%;
 }
 
 .playerPoints p{
@@ -335,9 +371,9 @@ img{
     border: none;
     background-color: #4b0082d6;
     font-family: 'Cairo', sans-serif;
-    font-size: 22px;
+    font-size: 56px;
     color: white;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .announce button:hover{
@@ -371,13 +407,14 @@ address{
     height: 100px;
     font-size:5em;
     text-align: center;
-    margin: 0.2em;
+    margin: 0.1em;
 }
 
 .ttt-table{
     display: flex;
     margin:0 auto;
     position: relative;
+    width: fit-content;
 }
 
 .flip-card-ttt {
@@ -415,12 +452,29 @@ address{
     color: #ff6c8b !important;
 }
 
+#announce-ttt button{
+    font-size: 23px;
+}
+
+#announce-ttt p{
+    font-size: 27px
+}
+
 
 /*SIMON*/
 
+#start{
+    font-size: 55px;
+}
+
+.simon-title{
+    font-size: 100px;
+    margin-bottom: 24px;
+}
+
 .container-simon{
     background-color: #000000c9;
-    padding: 1em;
+    padding: 3em;
     position: relative;
 }
 
@@ -432,6 +486,10 @@ address{
     transform: translate(-50%, -50%);
 }
 
+.counter-div p{
+    font-size: 57px;
+}
+
 #counter{
     color: white;
     text-align: center;
@@ -439,9 +497,21 @@ address{
 }
 
 .simonButton{
-    width: 100px;
-    height: 100px;
+    width: 270px;
+    height: 270px;
     border-radius: 50%;
+}
+
+.simon-points p{
+    font-size: 60px;
+}
+
+.disabledButton{
+    background-color: #8686868c;
+}
+
+#announce-simon p{
+    font-size: 60px;
 }
 
 .greenBtn{
@@ -452,13 +522,13 @@ address{
 .redBtn{
     background-color: rgb(206, 69, 110);
     display: inline-block;
-    margin-right: 60px;
+    margin-right: 125px;
 }
 
 .yellowBtn{
     background-color: rgb(223, 255, 78);
     display: inline-block;
-    margin-left: 60px;
+    margin-left: 125px;
 }
 
 .blueBtn{
@@ -510,5 +580,11 @@ address{
     
     to {
         text-shadow: 0 0 5px #fff, 0 0 11px #4dbeff, 0 0 28px #4dbeff, 0 0 11px #4dbeff, 0 0 21px #4dbeff, 0 0 18px #4dbeff, 0 0 11px #4dbeff;
+    }
+  }
+
+  @media (orientation: landscape) {
+    body {
+        background-size: auto;
     }
   }

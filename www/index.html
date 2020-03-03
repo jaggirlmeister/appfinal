@@ -80,7 +80,7 @@
                     <h1 class="home-title">Nayla's App</h1>
                     <div id="motive-menu">
                         <p>Motivo: </p>
-                        <select id="motive" name="motive" onchange="changeMotive()">
+                        <select id="motive" name="motive" onclick="playSound('select', 'motive')" onchange="changeMotive()">
                             <option value="afternoon">Tarde</option>
                             <option value="morning">Mañana</option>
                             <option value="night">Noche</option>
@@ -88,17 +88,24 @@
                         </select>
                     </div>
                     <div id="table" class="container menu-container">
-                        <a href= "tateti/index.html">
-                            <button id="tttBtn">Ta-Te-Ti</button>
+                        <a href= "tateti/index.html" onclick="playSound('select', 'tttBtn')">
+                            <button id="tttBtn" onclick="playSound('select', 'tttBtn')">Ta-Te-Ti</button>
                         </a>
                         <a href= "memotest/index.html">
-                            <button id="memoBtn">Memotest</button>
+                            <button id="memoBtn" onclick="playSound('select')">Memotest</button>
                         </a>
                         <a href= "simon/index.html">
-                            <button id="simonBtn">Simon</button>
+                            <button id="simonBtn" onclick="playSound('select')">Simon</button>
                         </a>
                     </div>
         </div>
+
+        <audio id="login-sound" src="assets/files/log in.mp3"></audio>
+        <audio id="select-sound" src="assets/files/select.mp3"></audio>
+        <audio id="special-tile-sound" src="assets/files/special-tile.mp3"></audio>
+        <audio id="tiles-sound" src="assets/files/tiles.mp3"></audio>
+        <audio id="warning-sound" src="assets/files/warning.mp3"></audio>
+
         <script src="assets/js/jquery-3.4.1.min.js"></script>
         <script src="assets/js/home.js"></script>
         <script type="text/javascript" src="cordova.js"></script>

@@ -12,6 +12,12 @@ var player2=JSON.parse(localStorage.getItem('player2'));
 var motive= localStorage.getItem('motive');
 var previousMotive ='afternoon';
 
+function playSound(sound, id){
+
+    const rollSound = new Audio("assets/files/"+sound+".mp3");
+    $("#"+id+"").click(e => rollSound.play());
+}
+
 function loadHome(){
 
     if(motive==null){

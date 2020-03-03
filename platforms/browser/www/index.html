@@ -46,16 +46,16 @@
                     <button id="delete1" class="hide" onclick='sureAbout(1)'>Eliminar</button>
                 </div>
 
-                <div id='login2' class='container hide'>
+                <div id='login2' class='container hide logins'>
                     <p id="login-head2">Ingrese los datos del Jugador 2</p>
                     <img id='user2img' class='playerPic' src='assets/images/user.svg' onclick='takePicture(2)'></img>
                     <label>Nombre</label><br><input placeholder='Ingrese nombre del jugador 2' type='text' id='name2' name='name' required>
                     <label>Nickname</label><br><input placeholder='Ingrese nickname del jugador 2' type='text' id='nick2' name='nick' required>
                     <button id="buttonLogin2" onclick='login2(1)' required>Ingresar</button>
-                    <button id="delete2" class="hide" onclick='sureAbout(2)'>Eliminar jugador</button>
+                    <button id="delete2" class="hide" onclick='sureAbout(2)'>Eliminar</button>
                 </div>
 
-                <div id='sureAbout' class='container hide'>
+                <div id='sureAbout' class='container hide logins'>
                     <p id="sureAboutHead"></p>
                     <button id="yes" onclick="deleteUser()">Sí</button>
                     <button id="no" onclick="back()">No</button>
@@ -77,10 +77,10 @@
                     </div>
                 
                 
-                    <h1>Nayla's App</h1>
+                    <h1 class="home-title">Nayla's App</h1>
                     <div id="motive-menu">
                         <p>Motivo: </p>
-                        <select id="motive" name="motive" onchange="changeMotive()">
+                        <select id="motive" name="motive" onclick="playSound('select', 'motive')" onchange="changeMotive()">
                             <option value="afternoon">Tarde</option>
                             <option value="morning">Mañana</option>
                             <option value="night">Noche</option>
@@ -88,17 +88,24 @@
                         </select>
                     </div>
                     <div id="table" class="container menu-container">
-                        <a href= "tateti/index.html">
-                            <button id="tttBtn">Ta-Te-Ti</button>
+                        <a href= "tateti/index.html" onclick="playSound('select', 'tttBtn')">
+                            <button id="tttBtn" onclick="playSound('select', 'tttBtn')">Ta-Te-Ti</button>
                         </a>
                         <a href= "memotest/index.html">
-                            <button id="memoBtn">Memotest</button>
+                            <button id="memoBtn" onclick="playSound('select')">Memotest</button>
                         </a>
                         <a href= "simon/index.html">
-                            <button id="simonBtn">Simon</button>
+                            <button id="simonBtn" onclick="playSound('select')">Simon</button>
                         </a>
                     </div>
         </div>
+
+        <audio id="login-sound" src="assets/files/log in.mp3"></audio>
+        <audio id="select-sound" src="assets/files/select.mp3"></audio>
+        <audio id="special-tile-sound" src="assets/files/special-tile.mp3"></audio>
+        <audio id="tiles-sound" src="assets/files/tiles.mp3"></audio>
+        <audio id="warning-sound" src="assets/files/warning.mp3"></audio>
+
         <script src="assets/js/jquery-3.4.1.min.js"></script>
         <script src="assets/js/home.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
