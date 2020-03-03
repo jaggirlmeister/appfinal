@@ -1,0 +1,40 @@
+  @media (orientation: landscape) {
+    .simon-title {
+        font-size: 55px;
+    }
+
+    #start {
+        font-size: 30px;
+    }
+
+    .simon-points p {
+        font-size: 25px;
+    }
+
+    .simonButton {
+        width: 130px;
+        height: 130px;
+    }
+
+    .redBtn {
+        margin-right: 65px;
+    }
+
+    .yellowBtn {
+        margin-left: 65px;
+    }
+
+    .container-simon {
+        padding: 1em;
+        margin-bottom: 4em;
+    }
+
+    .cont p {
+        font-size: 36px;
+    }
+
+    .announce button {
+        font-size: 28px;
+    }
+
+  }

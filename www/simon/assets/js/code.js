@@ -15,10 +15,10 @@ $("#player2Points-simon").append(simonPointsTwo);
 
 var CPUsequence=[];
 var userSequence =[];
-var theEnd = false;
 var cont=0;
 var selectedColor;
-//var sequences=0;
+//var gameStarted = false;
+var theEnd = false;
 
 var player = localStorage.getItem('simonTurn');
 
@@ -57,9 +57,6 @@ function playAudio(color){
 }
 
 function usersChoice(color, num){
-
-   // $("#counter").empty();
-   // $("#counter").append(CPUsequence.length);
 
     playAudio(color);
     turnOnColor(color);
@@ -106,17 +103,26 @@ function playSound(id){
     audio.play();
 }
 
+function startGame(){
+    $(".simonButton").removeClass("disable");
+    
+    $("#start").addClass("disable");
+    $("#start").addClass("disabledButton");
+
+    createSequence();
+}
+
 function createSequence(){
 
     $("#counter").empty();
     $("#counter").append("Recordá");
 
-    $("#announce").addClass("hide");
+    $("#announce-simon").addClass("hide");
 
     var randomNum= Math.floor(Math.random()*4);
     CPUsequence.push(randomNum);
 
-    $("#cont div").addClass("disable");
+    $("#cont-simon div").addClass("disable");
 
     for (var i = 0; i < CPUsequence.length; i++) {
         (function (i) {
@@ -130,7 +136,7 @@ function createSequence(){
 function showSequence(color, i){
     //0=green, 1=red, 2=blue, 3=yellow
     if(i+1==CPUsequence.length){
-        $("#cont div").removeClass("disable");
+        $("#cont-simon div").removeClass("disable");
 
         setTimeout(function () {
             $("#counter").empty();
@@ -184,7 +190,7 @@ function gameOver(){
         document.getElementById("playerTwo").classList.add("glow");
         localStorage.setItem('simonTurn', player);
 
-        $("#announce").removeClass("hide");
+        $("#announce-simon").removeClass("hide");
         $("#winnerText").html("Llegaste a "+cont+" secuencias");
 
         simonPointsOne = simonPointsOne + cont;
@@ -203,7 +209,7 @@ function gameOver(){
         document.getElementById("playerOne").classList.add("glow");
         localStorage.setItem('simonTurn', player);
         
-        $("#announce").removeClass("hide");
+        $("#announce-simon").removeClass("hide");
         $("#winnerText").html("Llegaste a "+cont+" secuencias");
 
         simonPointsTwo = simonPointsTwo + cont;

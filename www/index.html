@@ -46,16 +46,16 @@
                     <button id="delete1" class="hide" onclick='sureAbout(1)'>Eliminar</button>
                 </div>
 
-                <div id='login2' class='container hide'>
+                <div id='login2' class='container hide logins'>
                     <p id="login-head2">Ingrese los datos del Jugador 2</p>
                     <img id='user2img' class='playerPic' src='assets/images/user.svg' onclick='takePicture(2)'></img>
                     <label>Nombre</label><br><input placeholder='Ingrese nombre del jugador 2' type='text' id='name2' name='name' required>
                     <label>Nickname</label><br><input placeholder='Ingrese nickname del jugador 2' type='text' id='nick2' name='nick' required>
                     <button id="buttonLogin2" onclick='login2(1)' required>Ingresar</button>
-                    <button id="delete2" class="hide" onclick='sureAbout(2)'>Eliminar jugador</button>
+                    <button id="delete2" class="hide" onclick='sureAbout(2)'>Eliminar</button>
                 </div>
 
-                <div id='sureAbout' class='container hide'>
+                <div id='sureAbout' class='container hide logins'>
                     <p id="sureAboutHead"></p>
                     <button id="yes" onclick="deleteUser()">Sí</button>
                     <button id="no" onclick="back()">No</button>
@@ -77,7 +77,7 @@
                     </div>
                 
                 
-                    <h1>Nayla's App</h1>
+                    <h1 class="home-title">Nayla's App</h1>
                     <div id="motive-menu">
                         <p>Motivo: </p>
                         <select id="motive" name="motive" onchange="changeMotive()">
