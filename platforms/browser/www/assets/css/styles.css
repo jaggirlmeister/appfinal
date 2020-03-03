@@ -264,6 +264,15 @@ option{
     display: inline-block;
 }
 
+.smaller-tiles{
+    width: 100px !important;
+    height: 50px !important;
+}
+
+.smaller-flags{
+    width: 60px !important;
+}
+
 .flip-card-inner {
     /* position: relative; */
     /* width: 100%; */
