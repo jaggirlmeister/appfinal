@@ -1,7 +1,7 @@
 body{
     background-image: url("../images/afternoon.jpg");
     background-size: cover;
-    /*position: relative;*/
+    background-position: top;
     text-align: center;
     margin: 0;
     height: 100vh;
@@ -181,7 +181,7 @@ a{
 
 .menu-container{
     padding: 1.5em;
-    margin-bottom: 3em;
+    margin-bottom: 3em !important
 }
 
 /*Memotest table*/
@@ -453,7 +453,7 @@ address{
 }
 
 #announce-ttt button{
-    font-size: 30px;
+    font-size: 23px;
 }
 
 #announce-ttt p{
@@ -580,5 +580,11 @@ address{
     
     to {
         text-shadow: 0 0 5px #fff, 0 0 11px #4dbeff, 0 0 28px #4dbeff, 0 0 11px #4dbeff, 0 0 21px #4dbeff, 0 0 18px #4dbeff, 0 0 11px #4dbeff;
+    }
+  }
+
+  @media (orientation: landscape) {
+    body {
+        background-size: auto;
     }
   }

@@ -106,8 +106,8 @@ function playSound(id){
 function startGame(){
     $(".simonButton").removeClass("disable");
     
-    $("#start").addClass("disable");
     $("#start").addClass("disabledButton");
+    $("#start").addClass("disable");
 
     createSequence();
 }
@@ -115,14 +115,14 @@ function startGame(){
 function createSequence(){
 
     $("#counter").empty();
-    $("#counter").append("Recordá");
+    $("#counter").append("Mirá");
 
     $("#announce-simon").addClass("hide");
 
     var randomNum= Math.floor(Math.random()*4);
     CPUsequence.push(randomNum);
 
-    $("#cont-simon div").addClass("disable");
+    $(".simonButton").addClass("disable");
 
     for (var i = 0; i < CPUsequence.length; i++) {
         (function (i) {
@@ -136,7 +136,7 @@ function createSequence(){
 function showSequence(color, i){
     //0=green, 1=red, 2=blue, 3=yellow
     if(i+1==CPUsequence.length){
-        $("#cont-simon div").removeClass("disable");
+        $(".simonButton").removeClass("disable");
 
         setTimeout(function () {
             $("#counter").empty();
