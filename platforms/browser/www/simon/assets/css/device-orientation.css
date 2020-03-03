@@ -9,16 +9,16 @@
     }
 
     .simonButton {
-        width: 130px;
-        height: 130px;
+        width: 110px;
+        height: 110px;
     }
 
     .redBtn {
-        margin-right: 65px;
+        margin-right: 55px;
     }
 
     .yellowBtn {
-        margin-left: 65px;
+        margin-left: 55px;
     }
 
     .container-simon {
@@ -28,6 +28,10 @@
 
     .cont p {
         font-size: 36px;
+    }
+
+    #counter{
+        font-size: 21px;
     }
 
     .announce button {
