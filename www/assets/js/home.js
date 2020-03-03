@@ -2,9 +2,6 @@
 var player1={name:"" , nick: "", photo:"", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
 var player2={name:"" , nick: "", photo:"", totalpoints: 0, tttPoints:0, memoPoints:0, simonPoints:0};
 
-localStorage.clear();
-localStorage.setItem('tile', tileValue);
-localStorage.getItem('tile');
 */
 
 var player1=JSON.parse(localStorage.getItem('player1'));
@@ -198,6 +195,7 @@ function logged(player){
 }
 
 function editPlayer(player){
+
     if (player==1){
         $("#ask").removeClass("hide");
         $("#login1").removeClass("hide");

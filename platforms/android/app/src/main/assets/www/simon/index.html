@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Cairo|Rajdhani&display=swap" rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo|Rajdhani&display=swap" rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <title>Simon - Nayla Arroyo Lizzio</title>
-    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/device-orientation.css" rel="stylesheet">
 </head>
 <body onload="">
 
@@ -12,23 +13,51 @@
     <a href="../index.html">
         <img class="backIcon" src="../assets/images/back.svg"></img>
     </a>
-    <div id="cont">
 
-        <div id="3" class="simonButton blueBtn" onclick="playSound('blue')">
-            <audio id="blue" src="assets/files/a_sharp.wav"></audio>
+    <button id="start" onclick="startGame()">Jugar</button>
+
+    <div id="cont-simon" class="cont">
+
+        <div id="players">
+            <div class="playerPoints simon-points">
+                <p id="playerOne"></p>
+                <p id="player1Points-simon"></p>
+            </div>
+
+            <div class="playerPoints simon-points">
+                <p id="playerTwo"></p>
+                <p id="player2Points-simon"></p>
+            </div>
         </div>
 
-        <div id="4" class="simonButton redBtn" onclick="playSound('red')">
-            <audio id="red" src="assets/files/c_sharp.wav"></audio>
+        <div id="simon-table" class="container container-simon">
+
+        <div id="green-button" class="simonButton greenBtn disable" onclick="usersChoice('green', 0)">
+            <audio id="green" src="assets/files/green.mp3"></audio>
         </div>
 
-        <div id="2" class="simonButton yellowBtn" onclick="playSound('yellow')">
-            <audio id="yellow" src="assets/files/d_sharp.wav"></audio>
+        <div id="red-button" class="simonButton redBtn disable" onclick="usersChoice('red', 1)">
+                <audio id="red" src="assets/files/red.mp3"></audio>
+            </div>
+
+        <div id="yellow-button" class="simonButton yellowBtn disable" onclick="usersChoice('yellow', 3)">
+            <audio id="yellow" src="assets/files/yellow.mp3"></audio>
         </div>
 
-        <div id="1" class="simonButton greenBtn" onclick="playSound('green')">
-            <audio id="green" src="assets/files/f_sharp.wav"></audio>
+        <div id="blue-button" class="simonButton blueBtn disable" onclick="usersChoice('blue', 2)">
+            <audio id="blue" src="assets/files/blue.mp3"></audio>
         </div>
+
+        <div id="counter-cont" class="counter-div">
+            <p id="counter"></p>
+        </div>
+
+        <div id='announce-simon' class='announce hide'>
+            <p> Game Over</p>
+            <p id="winnerText"> </p>
+            <button id='reset' onclick="createSequence()">Pasar turno</button>
+        </div>    
+
     </div>
     <script src="../assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/code.js"></script>

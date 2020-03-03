@@ -62,7 +62,7 @@ h1{
     text-align: center;
     font-family: 'rajdhani';
     color: white;
-    font-size: 40px;
+    font-size: 45px;
 }
 
 .home-title{
@@ -153,7 +153,7 @@ a{
 }
 
 .cont p{
-    font-size: 30px;
+    font-size: 27px;
     display: block;
     color: white;
 }
@@ -236,9 +236,9 @@ option{
 }
 
 .memo-title{
-    font-size: 65px;
-    margin-bottom: 24px;
-    margin-top: 24px;
+    font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: 18px;
 }
 
 #memo-players{
@@ -247,7 +247,7 @@ option{
 
 #memo-players p{
     color: white;
-    font-size: 40px;
+    font-size: 28px;
 }
 
 #card{
@@ -371,7 +371,7 @@ img{
     border: none;
     background-color: #4b0082d6;
     font-family: 'Cairo', sans-serif;
-    font-size: 56px;
+    font-size: 20px;
     color: white;
     margin-bottom: 1em;
 }
@@ -440,7 +440,7 @@ address{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 83px !important;
+    font-size: 60px !important;
     font-weight: bold;
 }
 
@@ -464,12 +464,7 @@ address{
 /*SIMON*/
 
 #start{
-    font-size: 55px;
-}
-
-.simon-title{
-    font-size: 100px;
-    margin-bottom: 24px;
+    font-size: 24px;
 }
 
 .container-simon{
@@ -487,7 +482,7 @@ address{
 }
 
 .counter-div p{
-    font-size: 57px;
+    font-size: 27px;
 }
 
 #counter{
@@ -497,13 +492,13 @@ address{
 }
 
 .simonButton{
-    width: 270px;
-    height: 270px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 
 .simon-points p{
-    font-size: 60px;
+    font-size: 27px;
 }
 
 .disabledButton{
@@ -511,7 +506,7 @@ address{
 }
 
 #announce-simon p{
-    font-size: 60px;
+    font-size: 24px;
 }
 
 .greenBtn{
@@ -522,13 +517,13 @@ address{
 .redBtn{
     background-color: rgb(206, 69, 110);
     display: inline-block;
-    margin-right: 125px;
+    margin-right: 50px;
 }
 
 .yellowBtn{
     background-color: rgb(223, 255, 78);
     display: inline-block;
-    margin-left: 125px;
+    margin-left: 50px;
 }
 
 .blueBtn{
