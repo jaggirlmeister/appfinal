@@ -8,19 +8,14 @@ var player2data=JSON.parse(localStorage.getItem('player2'));
 $("#playerOne").append(player1data.nick);
 $("#playerTwo").append(player2data.nick);
 
-var winOne = player1data.tttPoints;
-var winTwo = player2data.tttPoints;
-$("#player1Points-ttt").append(winOne);
-$("#player2Points-ttt").append(winTwo);
+var simonPointsOne = player1data.simonPoints;
+var simonPointsTwo = player2data.simonPoints;
+$("#player1Points-simon").append(simonPointsOne);
+$("#player2Points-simon").append(simonPointsTwo);
 
 var CPUsequence=[];
 var userSequence =[];
 var theEnd = false;
-
-//points
-var points=0;
-var pointsPlayer1=0;
-var pointsPlayer2=0;
 var cont=0;
 var selectedColor;
 //var sequences=0;
@@ -63,6 +58,9 @@ function playAudio(color){
 
 function usersChoice(color, num){
 
+   // $("#counter").empty();
+   // $("#counter").append(CPUsequence.length);
+
     playAudio(color);
     turnOnColor(color);
 
@@ -70,6 +68,7 @@ function usersChoice(color, num){
     selectedColor=num;
    
     check(selectedColor, cont);
+
     if(cont==CPUsequence.length-1){
         cont=0;
     }else{
@@ -97,6 +96,9 @@ function check(color, position){
         //alert("game over! your Score: "+CPUsequence.length);
         gameOver();
     }
+
+    $("#counter").empty();
+    $("#counter").append(position+1);
 }
 
 function playSound(id){
@@ -106,12 +108,14 @@ function playSound(id){
 
 function createSequence(){
 
+    $("#counter").empty();
+    $("#counter").append("Recordá");
+
     $("#announce").addClass("hide");
 
     var randomNum= Math.floor(Math.random()*4);
     CPUsequence.push(randomNum);
 
-    points++;
     $("#cont div").addClass("disable");
 
     for (var i = 0; i < CPUsequence.length; i++) {
@@ -127,6 +131,11 @@ function showSequence(color, i){
     //0=green, 1=red, 2=blue, 3=yellow
     if(i+1==CPUsequence.length){
         $("#cont div").removeClass("disable");
+
+        setTimeout(function () {
+            $("#counter").empty();
+            $("#counter").append("Go!");
+         }, 700*1);
     }
 
     switch(color){ 
@@ -178,6 +187,14 @@ function gameOver(){
         $("#announce").removeClass("hide");
         $("#winnerText").html("Llegaste a "+cont+" secuencias");
 
+        simonPointsOne = simonPointsOne + cont;
+        $("#player1Points-simon").empty();
+        $("#player1Points-simon").append(simonPointsOne);
+        player1data.simonPoints = simonPointsOne;
+        player1data = JSON.stringify(player1data);
+        localStorage.setItem('player1', player1data);
+        player1data=JSON.parse(localStorage.getItem('player1'));
+
         theEnd=true;
 
     } else{
@@ -189,10 +206,17 @@ function gameOver(){
         $("#announce").removeClass("hide");
         $("#winnerText").html("Llegaste a "+cont+" secuencias");
 
+        simonPointsTwo = simonPointsTwo + cont;
+        $("#player2Points-simon").empty();
+        $("#player2Points-simon").append(simonPointsTwo);
+        player2data.simonPoints = simonPointsTwo;
+        player2data = JSON.stringify(player2data);
+        localStorage.setItem('player2', player2data);
+        player2data=JSON.parse(localStorage.getItem('player2'));
+
         theEnd=true;
     }
 
 CPUsequence=[];
 userSequence =[];
-
 }
