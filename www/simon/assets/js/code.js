@@ -41,7 +41,7 @@ function turnOnColor(color){
 function playAudio(color){
     var audio= document.getElementById(color);
     //audio.play();
-    
+
     audio.currentTime = 0;
     var playPromise = audio.play();
 
